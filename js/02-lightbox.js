@@ -13,10 +13,12 @@ const galleryList = document.querySelector('.gallery');
 
 const makeGallery = galleryItems.map(makeGalleryMarkup).join(' ');
 
+
+
 galleryList.insertAdjacentHTML('beforeend', makeGallery);
 
 galleryList.addEventListener('click', onClick);
-
+const gallery = new SimpleLightbox(".gallery a");
 function onClick(event) {
     event.preventDefault();
 
@@ -28,7 +30,7 @@ function onClick(event) {
   if (!event.target.classList.contains("gallery__image")) {
     return;
   }
-  let gallery = new SimpleLightbox(".gallery a");
+  
 
   gallery.on("show.simplelightbox", function () {
     gallery.captionDelay = 250;
